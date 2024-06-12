@@ -37,6 +37,7 @@ form.onsubmit = function(event) {
 
 }
 
+
 function render(products) {
  products.forEach(function(el, index) {
   const divEl = document.createElement("div");
@@ -71,6 +72,7 @@ function render(products) {
 
 
 
+
 function checkInputs() {
   if (title.value.trim() === '' && price.value.trim() === '' && description.value.trim() === '') {
       adminBtn.disabled = true;   
@@ -79,7 +81,7 @@ function checkInputs() {
 }
 }
 title.addEventListener('input', checkInputs());
-price.addEventListener('input', checkInputs());
+price.addEventListener('input', checkInputs);
 description.addEventListener('input', checkInputs);
 // function button(){
 //   if(title && price && description === ''){

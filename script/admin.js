@@ -78,8 +78,8 @@ function checkInputs() {
   adminBtn.disabled = false;
 }
 }
-title.addEventListener('input', checkInputs);
-price.addEventListener('input', checkInputs);
+title.addEventListener('input', checkInputs());
+price.addEventListener('input', checkInputs());
 description.addEventListener('input', checkInputs);
 // function button(){
 //   if(title && price && description === ''){
@@ -89,3 +89,11 @@ description.addEventListener('input', checkInputs);
 //   }
 // }
 // button();
+// function checkInputs() {
+//   if (title.value.trim() == '' && price.value.trim() == '' && description.value.trim() == '') {
+//     adminBtn.disabled = false;
+//   } else {
+//     adminBtn.disabled = true;
+//   }
+// }
+// checkInputs()

@@ -80,6 +80,5 @@ if(emailInput || passwordInput){
     authBnt.disabled = false;
  }
  }
-  emailInput.addEventListener('input', checkInputs);
+  emailInput.addEventListener('input', checkInputs());
   passwordInput.addEventListener('input', checkInputs);
-

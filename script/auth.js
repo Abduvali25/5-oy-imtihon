@@ -3,6 +3,7 @@ import { checkToken, redirect } from "./utils.js";
 const form = document.forms[0];
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
+const authBnt = document.getElementById("auth-btn");
 
 window.addEventListener("DOMContentLoaded", function () {
   const hasToken = checkToken();
@@ -55,4 +56,30 @@ async function login() {
   } catch (error) {
     console.error;
   }
+};
+
+// function toggleButton () {
+//   if(emailInput.value.trim() && passwordInput.value.trim() === '') {
+//       authBnt.disabled = true;
+//   } else {
+//       authBnt.disabled = false;
+//   }
+// }
+// toggleButton();
+
+if(emailInput || passwordInput){
+  authBnt.disabled = true;
+}else{
+  authBnt.disabled = false;
 }
+
+ function checkInputs() {
+    if (emailInput.value.trim() === '' && passwordInput.value.trim() === '') {
+        authBnt.disabled = true;   
+      } else {
+    authBnt.disabled = false;
+ }
+ }
+  emailInput.addEventListener('input', checkInputs);
+  passwordInput.addEventListener('input', checkInputs);
+

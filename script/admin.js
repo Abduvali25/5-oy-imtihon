@@ -68,3 +68,24 @@ function render(products) {
   box.append(divEl);
 });
 }
+
+
+
+function checkInputs() {
+  if (title.value.trim() === '' && price.value.trim() === '' && description.value.trim() === '') {
+      adminBtn.disabled = true;   
+    } else {
+  adminBtn.disabled = false;
+}
+}
+title.addEventListener('input', checkInputs);
+price.addEventListener('input', checkInputs);
+description.addEventListener('input', checkInputs);
+// function button(){
+//   if(title && price && description === ''){
+//     adminBtn.disabled = true;
+//   }else{
+//     adminBtn.disabled = false;
+//   }
+// }
+// button();

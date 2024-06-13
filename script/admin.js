@@ -4,7 +4,10 @@ const title = document.getElementById("title");
 const price = document.getElementById("price");
 const description = document.getElementById("description");
 const adminBtn = document.getElementById("admin-btn");
-const box = document.querySelector(".box")
+const box = document.querySelector(".box");
+const log = document.getElementById("logOut");
+
+
 window.addEventListener("DOMContentLoaded", function () {
   const hasToken = checkToken();
 
@@ -38,43 +41,46 @@ form.onsubmit = function(event) {
 
 
 function render(products) {
+  box.innerHTML= "";
  products.forEach(function(el, index) {
   const divEl = document.createElement("div");
-  divEl.style.border = "1px solid black";
-  divEl.style.display = "inline-block";
-  divEl.style.padding = "20px";
-  divEl.style.marginTop ='50px';
-  divEl.style.marginLeft = "550px";
-  divEl.style.borderRadius = "5px";
+  divEl.classList.add("divEl")
+  
 
    const pID = document.createElement("p");
-   pID.innerHTML = el.id;
+   pID.innerHTML = "ID: " +el.id;
+   pID.style.marginTop = "2px"
    divEl.append(pID);
 
   const pTitle = document.createElement("p");
-  pTitle.innerHTML = el.title;
+  pTitle.innerHTML ="Name: " + el.title;
+  pTitle.style.marginTop = "6px";
+  pTitle.style.fontSize = "18px"
   divEl.append(pTitle);
 
 
   const pPrice = document.createElement("p");
-  pPrice.innerHTML = el.price;
+  pPrice.innerHTML ="Price: " + el.price;
+  pPrice.style.marginTop = "6px"
   divEl.append(pPrice);
 
 
   const pDescription = document.createElement("p");
-  pDescription.innerHTML = el.description;
+  pDescription.innerHTML ="Description: " + el.description;
+  pDescription.style.marginTop = "6px"
   divEl.append(pDescription);
   
   box.append(divEl);
  
 });
 }
+
+
+
 adminBtn.disabled = true;
-
-
-
 function checkInputs() {
-  if (title.value.trim() === ' ' && price.value.trim() === ' ' && description.value.trim() === ' ') {
+  if (title.value.trim() === '' && price.value.trim() === '' && description.value.trim() === '') {
+   
     } else {
   adminBtn.disabled = false;
 }
@@ -82,3 +88,6 @@ function checkInputs() {
 title.addEventListener('input', checkInputs);
 price.addEventListener('input', checkInputs);
 description.addEventListener('input', checkInputs);
+log.onclick = function() {
+  redirect("/auth.html")
+}

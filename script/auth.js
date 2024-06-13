@@ -71,9 +71,11 @@ if(emailInput || passwordInput){
   authBnt.disabled = true;
 }else{
   authBnt.disabled = false;
+  handleLoginError()
 }
 
  function checkInputs() {
+
     if (emailInput.value.trim() === '' && passwordInput.value.trim() === '') {
         authBnt.disabled = true;   
       } else {
@@ -82,3 +84,13 @@ if(emailInput || passwordInput){
  }
   emailInput.addEventListener('input', checkInputs());
   passwordInput.addEventListener('input', checkInputs);
+
+
+  function handleLoginError(response) {
+    if (response.status === 401) {
+      alert("Invalid email or password. Please try again.");
+    } else {
+      alert("An error occurred. Please try again later.");
+    }
+  }
+  handleLoginError();

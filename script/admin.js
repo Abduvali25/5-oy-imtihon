@@ -28,12 +28,11 @@ form.onsubmit = function(event) {
 
   products.push(newProduct);
   render(products);
+
   
   title.value = '';
   price.value = '';
   description.value = '';
-
-
 
 }
 
@@ -46,7 +45,7 @@ function render(products) {
   divEl.style.padding = "20px";
   divEl.style.marginTop ='50px';
   divEl.style.marginLeft = "550px";
-  divEl.style.borderRadius = "5px"
+  divEl.style.borderRadius = "5px";
 
    const pID = document.createElement("p");
    pID.innerHTML = el.id;
@@ -67,35 +66,19 @@ function render(products) {
   divEl.append(pDescription);
   
   box.append(divEl);
+ 
 });
 }
-
+adminBtn.disabled = true;
 
 
 
 function checkInputs() {
-  if (title.value.trim() === '' && price.value.trim() === '' && description.value.trim() === '') {
-      adminBtn.disabled = true;   
+  if (title.value.trim() === ' ' && price.value.trim() === ' ' && description.value.trim() === ' ') {
     } else {
   adminBtn.disabled = false;
 }
 }
-title.addEventListener('input', checkInputs());
+title.addEventListener('input', checkInputs);
 price.addEventListener('input', checkInputs);
 description.addEventListener('input', checkInputs);
-// function button(){
-//   if(title && price && description === ''){
-//     adminBtn.disabled = true;
-//   }else{
-//     adminBtn.disabled = false;
-//   }
-// }
-// button();
-// function checkInputs() {
-//   if (title.value.trim() == '' && price.value.trim() == '' && description.value.trim() == '') {
-//     adminBtn.disabled = false;
-//   } else {
-//     adminBtn.disabled = true;
-//   }
-// }
-// checkInputs()

@@ -8,7 +8,7 @@ const authBnt = document.getElementById("auth-btn");
 window.addEventListener("DOMContentLoaded", function () {
   const hasToken = checkToken();
   if (hasToken) {
-    redirect("/admin.html");
+    redirect("/index.html");
   }
 });
 
@@ -51,7 +51,7 @@ async function login() {
 
     const hasToken = checkToken();
     if (hasToken) {
-      redirect("/admin.html");
+      redirect("/index.html");
     }
   } catch (error) {
     console.error;
